@@ -19,7 +19,7 @@
             <div class="col-md-2"></div>
             <div class="col-md-8">
                 <h2 class="my-5 text-center">AJAX CRUD</h2>
-                <a href="">a</a>
+                <a href="" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product</a>
                 <div class="table-data">
                     <table class="table table-bordered">
                         <thead>
