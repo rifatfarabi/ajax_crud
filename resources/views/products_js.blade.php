@@ -19,16 +19,28 @@ $(document).ready(function() {
         let price = $('#price').val();
         // console.log(name+price);
 
-        $.ajax{
-            url:"{{ route('add.product') }}",
-            method: 'post',
+        $.ajax({
+            url:"/product/add",
+            // url:"{{ route('add.product') }}",
+            method:'POST',
             data:{name:name,price:price},
             success:function(res){
-
-            }, error:function(err){
-                
+                if(res.status == 'success'){
+                    $('#exampleModal').modal('hide');
+                    $('#addProductForm')[0].reset();
+                }
+            },error:function(err){
+                let error = err.responseJSON;
+                $.each(error.errors,function(index, value){
+                    if ('.errorMessage') {
+                        '<span class="text-danger">'+value+'</span>'+'<br>';
+                    } else {
+                        '<span class="text-danger">'+value+'</span>'+'<br>';
+                    }
+                //    $('.errorMessage').append('<span class="text-danger">'+value+'</span>'+'<br>');
+                });
             }
-        }
+        });
     });
 });
 </script>

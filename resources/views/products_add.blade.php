@@ -5,8 +5,9 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form action="" method="POST" id="addProductForm">
+    <form action="" method="post" id="addProductForm">
         @csrf
+        @method('POST')
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -15,11 +16,12 @@
                 </div>
 
                 <div class="modal-body">
-                    <div class="form-group">
+                    {{-- <div class="errorMessage"></div> --}}
+                    <div class="form-group errorMessage">
                         <label for="name">Product Name</label>
                         <input type="text" class="form-control" name="name" id="name" placeholder="Enter your product name">
                     </div>
-                    <div class="form-group mt-2">
+                    <div class="form-group mt-2 errorMessage2">
                         <label for="price">Product Price</label>
                         <input type="text" class="form-control" name="price" id="price"
                             placeholder="Enter your product price">
