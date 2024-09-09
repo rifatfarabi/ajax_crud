@@ -42,5 +42,15 @@ $(document).ready(function() {
             }
         });
     });
+
+    $(document).on('click','.update_product_form', function(){
+        let id = $(this).data('id');
+        let name = $(this).data('name');
+        let price = $(this).data('price');
+
+        $('#up_id').val(id);
+        $('#up_name').val(name);
+        $('#up_price').val(price);
+    })
 });
 </script>
