@@ -51,6 +51,38 @@ $(document).ready(function() {
         $('#up_id').val(id);
         $('#up_name').val(name);
         $('#up_price').val(price);
-    })
+    });
+
+    $(document).on('click','.save_product', function(e){
+        e.preventDefault();
+        let id = $('#id').val();
+        let up_name = $('#up_name').val();
+        let up_price = $('#up_price').val();
+        // console.log(name+price);
+
+        $.ajax({
+            url:"/product/update",
+            // url:"{{ route('add.product') }}",
+            method:'POST',
+            data:{up_name:up_name,up_price:up_price},
+            success:function(res){
+                if(res.status == 'success'){
+                    $('#updateModal').modal('hide');
+                    $('#updateProductForm')[0].reset();
+                }
+            },error:function(err){
+                let error = err.responseJSON;
+                $.each(error.errors,function(index, value){
+                    if ('.errorMessage') {
+                        '<span class="text-danger">'+value+'</span>'+'<br>';
+                    } else {
+                        '<span class="text-danger">'+value+'</span>'+'<br>';
+                    }
+                //    $('.errorMessage').append('<span class="text-danger">'+value+'</span>'+'<br>');
+                });
+            }
+        });
+    });
+
 });
 </script>

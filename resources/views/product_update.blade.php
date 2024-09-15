@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
-    <form action="" method="post" id="addProductForm">
+    <form action="" method="post" id="updateProductForm">
         @csrf
         @method('POST')
         <input type="hidden" id="up_id">
