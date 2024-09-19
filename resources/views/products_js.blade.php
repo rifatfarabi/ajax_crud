@@ -53,18 +53,19 @@ $(document).ready(function() {
         $('#up_price').val(price);
     });
 
-    $(document).on('click','.save_product', function(e){
+
+    //Update Product
+    $(document).on('click','.update_product', function(e){
         e.preventDefault();
-        let id = $('#id').val();
+        let up_id = $('#up_id').val();
         let up_name = $('#up_name').val();
         let up_price = $('#up_price').val();
         // console.log(name+price);
 
         $.ajax({
-            url:"/product/update",
-            // url:"{{ route('add.product') }}",
+            url:"{{ route('update.product') }}",
             method:'POST',
-            data:{up_name:up_name,up_price:up_price},
+            data:{up_id:up_id,up_name:up_name,up_price:up_price},
             success:function(res){
                 if(res.status == 'success'){
                     $('#updateModal').modal('hide');
